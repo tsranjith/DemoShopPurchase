@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cucumber</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<style>
+.cucumber-react .cucumber-status--passed {
+  color: #2CB14A;
+}
+.cucumber-react .cucumber-status--skipped {
+  color: #00A0CC;
+}
+.cucumber-react .cucumber-status--pending {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--undefined {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--ambiguous {
+  color: #F4EBFD;
+}
+.cucumber-react .cucumber-status--failed {
+  color: #BB0000;
+}
+.cucumber-react .cucumber-status--unknown {
+  color: #B6BECB;
+}
+.cucumber-react h1, .cucumber-react h2, .cucumber-react h3 {
+  padding: 0;
+  margin: 0;
+}
+.cucumber-react a {
+  color: inherit;
+}
+.cucumber-react .gherkin-document-list {
+  font: 14px "Open Sans", sans-serif;
+  color: #161C24;
+  background: #fff;
+  overflow-x: hidden;
+}
+.cucumber-react .cucumber-title {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.cucumber-react .cucumber-title__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-title__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-tags {
+  padding: 0;
+  margin-bottom: 0;
+}
+.cucumber-react .cucumber-tags .cucumber-tag {
+  display: inline;
+  list-style-type: none;
+  padding: 4px 8px 4px 8px;
+  margin-right: 6px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}
+.cucumber-react .cucumber-feature__icon {
+  padding-top: 0.35em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-description,
+.cucumber-react .cucumber-children {
+  margin-left: 1em;
+}
+.cucumber-react .cucumber-feature,
+.cucumber-react .cucumber-rule,
+.cucumber-react .cucumber-scenario,
+.cucumber-react .cucumber-background {
+  margin-bottom: 1em;
+}
+.cucumber-react .cucumber-steps {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.cucumber-react .cucumber-steps .cucumber-step {
+  display: flex;
+}
+.cucumber-react .cucumber-steps .cucumber-step__status {
+  padding-top: 0.2em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-steps .cucumber-step__content {
+  flex-grow: 1;
+  max-width: calc(100% - 1.5em);
+}
+.cucumber-react .cucumber-steps .cucumber-step__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-steps .cucumber-step__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-steps .cucumber-step__param {
+  font-weight: normal;
+  font-style: italic;
+}
+.cucumber-react .cucumber-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .cucumber-table__header-cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .cucumber-table__cell__step {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-code {
+  padding: 0.25em;
+  background-color: #ebebeb;
+}
+.cucumber-react .cucumber-error {
+  padding: 0.5em;
+  margin: 0;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-no-documents {
+  font: 14px "Open Sans", sans-serif;
+}
+.cucumber-react .cucumber-attachment__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-attachment__image {
+  max-width: 100%;
+  margin-top: 1em;
+}
+.cucumber-react .cucumber-attachment__text {
+  background-color: #ebebeb;
+  padding: 0.5em;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-anchor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+}
+.cucumber-react .cucumber-anchor__link {
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+}
+.cucumber-react .cucumber-anchor__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-anchor:hover a {
+  opacity: 1;
+  width: max-content;
+  transition: all 0.35s ease-in-out;
+}
+.cucumber-react .cucumber-anchor > * {
+  height: 100%;
+  margin-top: 0px;
+}
+
+.cucumber-report-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: 11px "Open Sans", sans-serif;
+  margin-bottom: 1em;
+}
+.cucumber-report-header > * {
+  padding: 1em;
+}
+.cucumber-report-header .cucumber-status-filter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-status-filter table {
+  width: 100%;
+}
+.cucumber-report-header .cucumber-execution-data {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-search-bar {
+  border-right: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search input {
+  padding: 0.4em;
+  border-radius: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search button {
+  height: 2.2em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar p.help {
+  font-size: 80%;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul {
+  display: inline;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li input {
+  display: inline-block;
+  width: auto;
+  height: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li label {
+  padding-right: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-execution-data {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: auto;
+  }
+}
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+	</style>
+</head>
+<body>
+<div id="content">
+</div>
+<script>
+window.CUCUMBER_MESSAGES = [{"meta":{"protocolVersion":"14.0.1","implementation":{"name":"cucumber-jvm","version":"6.10.1"},"runtime":{"name":"Java HotSpot(TM) 64-Bit Server VM","version":"25.201-b09"},"os":{"name":"Windows 10"},"cpu":{"name":"amd64"}}},{"testRunStarted":{"timestamp":{"seconds":"1647215220","nanos":114000000}}},{"source":{"uri":"file:///C:/Users/Digital%20Test%202/Downloads/DemoShop/src/test/java/com/test/resources/features/dresscollections.feature","data":"Feature: Purchase product from the demoshop\r\n\r\n  Scenario: Add the lowest price item from the wishlist to the cart and verify the item in cart\r\n    Given  I add four different products to my wish list\r\n    When I view my wishlist table\r\n    Then I find total four selected items in my Wishlist\r\n    When I search for lowest price product\r\n    And I am able to add the lowest price item to my cart\r\n    Then I am able to verify the item in my cart","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/Digital%20Test%202/Downloads/DemoShop/src/test/java/com/test/resources/features/dresscollections.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Purchase product from the demoshop","children":[{"scenario":{"location":{"line":3,"column":3},"keyword":"Scenario","name":"Add the lowest price item from the wishlist to the cart and verify the item in cart","steps":[{"location":{"line":4,"column":5},"keyword":"Given ","text":"I add four different products to my wish list","id":"3b6d4802-a4f3-467e-8e71-7fe1ebfe069b"},{"location":{"line":5,"column":5},"keyword":"When ","text":"I view my wishlist table","id":"ce4c6d6c-907e-419f-b654-3986326d2a0e"},{"location":{"line":6,"column":5},"keyword":"Then ","text":"I find total four selected items in my Wishlist","id":"c17e034e-6fba-44b3-a1a2-6e93aa62f7f7"},{"location":{"line":7,"column":5},"keyword":"When ","text":"I search for lowest price product","id":"4d461b2a-47b1-41c2-9f39-a925b5e3dc7d"},{"location":{"line":8,"column":5},"keyword":"And ","text":"I am able to add the lowest price item to my cart","id":"4f0e895a-a366-4287-aec5-565c30d46812"},{"location":{"line":9,"column":5},"keyword":"Then ","text":"I am able to verify the item in my cart","id":"990d00b3-b429-49f6-8c05-378513fb574c"}],"id":"6e3c323d-9601-44b2-ab92-f6d33b300604"}}]}}},{"pickle":{"id":"5a64d62c-458a-45e1-9b0e-3d45954fa26b","uri":"file:///C:/Users/Digital%20Test%202/Downloads/DemoShop/src/test/java/com/test/resources/features/dresscollections.feature","name":"Add the lowest price item from the wishlist to the cart and verify the item in cart","language":"en","steps":[{"text":"I add four different products to my wish list","id":"d6bef49d-dc2f-49ea-8d89-84a13a301eca","astNodeIds":["3b6d4802-a4f3-467e-8e71-7fe1ebfe069b"]},{"text":"I view my wishlist table","id":"51d128c9-e395-46c5-866b-e4dcc8f350f4","astNodeIds":["ce4c6d6c-907e-419f-b654-3986326d2a0e"]},{"text":"I find total four selected items in my Wishlist","id":"186b9e71-222c-4418-af67-b07a635f9d6d","astNodeIds":["c17e034e-6fba-44b3-a1a2-6e93aa62f7f7"]},{"text":"I search for lowest price product","id":"341c045b-f464-46e3-afc4-20b0a63c5234","astNodeIds":["4d461b2a-47b1-41c2-9f39-a925b5e3dc7d"]},{"text":"I am able to add the lowest price item to my cart","id":"dd8c2273-d79a-47cb-9055-83e57cd75b26","astNodeIds":["4f0e895a-a366-4287-aec5-565c30d46812"]},{"text":"I am able to verify the item in my cart","id":"71863e7a-9a2c-43a7-8c48-646c1a685a6a","astNodeIds":["990d00b3-b429-49f6-8c05-378513fb574c"]}],"astNodeIds":["6e3c323d-9601-44b2-ab92-f6d33b300604"]}},{"testCase":{"id":"a74d3fa7-65ae-47b1-a7c6-70339dd80ab6","pickleId":"5a64d62c-458a-45e1-9b0e-3d45954fa26b","testSteps":[{"id":"d74f4015-9c51-47a7-9aa7-f0dbae27a403","pickleStepId":"d6bef49d-dc2f-49ea-8d89-84a13a301eca","stepDefinitionIds":["09444f32-e58d-4cf0-9123-2a4b9210aaf0"],"stepMatchArgumentsLists":[{}]},{"id":"7649c05f-32ed-4116-aa08-5442e322a661","pickleStepId":"51d128c9-e395-46c5-866b-e4dcc8f350f4","stepDefinitionIds":["bcf8acff-07d9-44b9-8044-0b7de93364af"],"stepMatchArgumentsLists":[{}]},{"id":"f9c73161-8996-40d7-99aa-1f32c17de839","pickleStepId":"186b9e71-222c-4418-af67-b07a635f9d6d","stepDefinitionIds":["43ec424b-87ee-424c-91ea-b51722da7422"],"stepMatchArgumentsLists":[{}]},{"id":"80632025-7a4c-4a18-b628-7b4e2a9f9119","pickleStepId":"341c045b-f464-46e3-afc4-20b0a63c5234","stepDefinitionIds":["88ee71ee-92f5-4d84-bd86-c2c804198d1f"],"stepMatchArgumentsLists":[{}]},{"id":"ca41ecb2-4ec5-487a-a4cb-eb632a6d996e","pickleStepId":"dd8c2273-d79a-47cb-9055-83e57cd75b26","stepDefinitionIds":["c2a2bdba-fcbb-460b-9072-e4c82af1e289"],"stepMatchArgumentsLists":[{}]},{"id":"05befe16-3cac-49e2-a7f9-f2edbeb6ee39","pickleStepId":"71863e7a-9a2c-43a7-8c48-646c1a685a6a","stepDefinitionIds":["374f8feb-3530-4506-8127-5eb3741e1621"],"stepMatchArgumentsLists":[{}]},{"id":"0934dd3a-fe89-4f65-aafd-a7acd6d366f1","hookId":"85514fcb-a200-4c9c-aca7-76826a2064ed"}]}},{"testCaseStarted":{"timestamp":{"seconds":"1647215220","nanos":664000000},"testCaseId":"a74d3fa7-65ae-47b1-a7c6-70339dd80ab6","id":"ba46b42b-47f7-4e66-9750-f5817f053bff"}},{"testStepStarted":{"timestamp":{"seconds":"1647215220","nanos":801000000},"testStepId":"d74f4015-9c51-47a7-9aa7-f0dbae27a403","testCaseStartedId":"ba46b42b-47f7-4e66-9750-f5817f053bff"}},{"testStepFinished":{"testStepResult":{"status":"FAILED","message":"org.openqa.selenium.ElementNotInteractableException: element not interactable\n  (Session info: chrome\u003d99.0.4844.51)\nBuild info: version: \u00273.5.2\u0027, revision: \u002710229a9\u0027, time: \u00272017-08-21T17:29:55.15Z\u0027\nSystem info: host: \u0027DESKTOP-P0ALVMD\u0027, ip: \u0027192.168.192.1\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u00271.8.0_201\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities [{networkConnectionEnabled\u003dfalse, chrome\u003d{chromedriverVersion\u003d99.0.4844.51 (d537ec02474b5afe23684e7963d538896c63ac77-refs/branch-heads/4844@{#875}), userDataDir\u003dC:\\Users\\DIGITA~1\\AppData\\Local\\Temp\\scoped_dir10696_2118524864}, timeouts\u003d{implicit\u003d0, pageLoad\u003d300000, script\u003d30000}, pageLoadStrategy\u003dnormal, unhandledPromptBehavior\u003ddismiss and notify, strictFileInteractability\u003dfalse, platform\u003dANY, proxy\u003dProxy(), goog:chromeOptions\u003d{debuggerAddress\u003dlocalhost:65058}, webauthn:extension:credBlob\u003dtrue, acceptInsecureCerts\u003dfalse, browserVersion\u003d99.0.4844.51, browserName\u003dchrome, javascriptEnabled\u003dtrue, platformName\u003dwindows, setWindowRect\u003dtrue, webauthn:extension:largeBlob\u003dtrue, webauthn:virtualAuthenticators\u003dtrue}]\nSession ID: edddf296ff348793ed6aa3fcffa3ccb0\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:641)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:275)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:82)\r\n\tat com.test.products.stepdef.OrdersTestDefinition.iAddFourDifferentProductsToMyWishList(OrdersTestDefinition.java:57)\r\n\tat ✽.I add four different products to my wish list(file:///C:/Users/Digital%20Test%202/Downloads/DemoShop/src/test/java/com/test/resources/features/dresscollections.feature:4)\r\n","duration":{"seconds":"59","nanos":958000000}},"timestamp":{"seconds":"1647215280","nanos":759000000},"testStepId":"d74f4015-9c51-47a7-9aa7-f0dbae27a403","testCaseStartedId":"ba46b42b-47f7-4e66-9750-f5817f053bff"}},{"testStepStarted":{"timestamp":{"seconds":"1647215280","nanos":785000000},"testStepId":"7649c05f-32ed-4116-aa08-5442e322a661","testCaseStartedId":"ba46b42b-47f7-4e66-9750-f5817f053bff"}},{"testStepFinished":{"testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1647215280","nanos":785000000},"testStepId":"7649c05f-32ed-4116-aa08-5442e322a661","testCaseStartedId":"ba46b42b-47f7-4e66-9750-f5817f053bff"}},{"testStepStarted":{"timestamp":{"seconds":"1647215280","nanos":787000000},"testStepId":"f9c73161-8996-40d7-99aa-1f32c17de839","testCaseStartedId":"ba46b42b-47f7-4e66-9750-f5817f053bff"}},{"testStepFinished":{"testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1647215280","nanos":787000000},"testStepId":"f9c73161-8996-40d7-99aa-1f32c17de839","testCaseStartedId":"ba46b42b-47f7-4e66-9750-f5817f053bff"}},{"testS
