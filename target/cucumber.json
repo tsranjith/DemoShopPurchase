@@ -1,0 +1,107 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-03-14T02:25:22.826Z",
+        "line": 3,
+        "name": "Add the lowest price item from the wishlist to the cart and verify the item in cart",
+        "description": "",
+        "id": "purchase-product-from-the-demoshop;add-the-lowest-price-item-from-the-wishlist-to-the-cart-and-verify-the-item-in-cart",
+        "after": [
+          {
+            "result": {
+              "duration": 802000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.test.products.stepdef.StepDefinition.closeDriver()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 26127000000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I add four different products to my wish list",
+            "match": {
+              "location": "com.test.products.stepdef.StepDefinition.iAddFourDifferentProductsToMyWishList()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 775000000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I view my wishlist table",
+            "match": {
+              "location": "com.test.products.stepdef.StepDefinition.iViewMyWishlistTable()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 41000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I find total four selected items in my Wishlist",
+            "match": {
+              "location": "com.test.products.stepdef.StepDefinition.iFindTotalFourSelectedItemsInMyWishlist()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 289000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I search for lowest price product",
+            "match": {
+              "location": "com.test.products.stepdef.StepDefinition.iSearchForLowestPriceProduct()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2286000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I am able to add the lowest price item to my cart",
+            "match": {
+              "location": "com.test.products.stepdef.StepDefinition.iAmAbleToAddTheLowestPriceItemToMyCart()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2845000000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I am able to verify the item in my cart",
+            "match": {
+              "location": "com.test.products.stepdef.StepDefinition.iAmAbleToVerifyTheItemInMyCart()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Purchase product from the demoshop",
+    "description": "",
+    "id": "purchase-product-from-the-demoshop",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/com/test/resources/features/addItemToCart.feature",
+    "tags": []
+  }
+]
