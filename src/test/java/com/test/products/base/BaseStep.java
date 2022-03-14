@@ -1,7 +1,8 @@
-package com.test.products.pages;
+package com.test.products.base;
 
 import com.test.products.testcontext.TestContext;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,7 +21,6 @@ public class BaseStep {
     public WebElement waitForElementPresent(By by) {
         WebDriverWait wait = new WebDriverWait(driver, 15);
         return wait.until(ExpectedConditions.presenceOfElementLocated(by));
-//        return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     public List<WebElement> findElements(By by) {
@@ -28,8 +28,18 @@ public class BaseStep {
         return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
     }
 
-    public void waitInSeconds(int seconds) throws InterruptedException {
-        Thread.sleep(seconds);
+    public void waitInMilliSeconds(int milliSeconds) throws InterruptedException {
+        Thread.sleep(milliSeconds);
+    }
+
+    public Object executeScript(String string, WebElement element) {
+        RemoteWebDriver jse = driver;
+
+        try {
+            return jse.executeScript(string, new Object[]{element});
+        } catch (StaleElementReferenceException var5) {
+            return jse.executeScript(string, new Object[]{element});
+        }
     }
 
 }

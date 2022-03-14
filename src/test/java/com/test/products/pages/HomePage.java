@@ -1,5 +1,6 @@
 package com.test.products.pages;
 
+import com.test.products.base.BaseStep;
 import com.test.products.testcontext.TestContext;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
