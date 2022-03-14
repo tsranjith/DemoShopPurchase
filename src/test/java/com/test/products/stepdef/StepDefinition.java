@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class OrdersTestDefinition {
+public class StepDefinition {
 
     TestContext testContext;
     HomePage homePage;
@@ -30,7 +30,7 @@ public class OrdersTestDefinition {
     int lowestPrice;
     String lowestProductName;
 
-    public OrdersTestDefinition(TestContext testContext) throws IOException {
+    public StepDefinition(TestContext testContext) throws IOException {
         this.testContext = testContext;
         homePage = new HomePage(testContext);
         wishlistPage = new WishlistPage(testContext);

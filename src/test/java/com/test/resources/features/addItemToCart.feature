@@ -1,3 +1,4 @@
+@addItem
 Feature: Purchase product from the demoshop
 
   Scenario: Add the lowest price item from the wishlist to the cart and verify the item in cart
