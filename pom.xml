@@ -93,7 +93,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>DressCollections</projectName>
+                            <projectName>DemoShop</projectName>
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <cucumberOutput>
                                 ${project.build.directory}/cucumber.json
