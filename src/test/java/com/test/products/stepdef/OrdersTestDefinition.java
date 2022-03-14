@@ -13,25 +13,24 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Properties;
 
 public class OrdersTestDefinition {
 
-    private static final String URL = "https://testscriptdemo.com/";
     TestContext testContext;
     HomePage homePage;
     WishlistPage wishlistPage;
     CartPage cartPage;
 
-    Utils utils;
+    Utils utils = new Utils();
 
     int lowestPrice;
     String lowestProductName;
 
-    public OrdersTestDefinition(TestContext testContext) {
+    public OrdersTestDefinition(TestContext testContext) throws IOException {
         this.testContext = testContext;
         homePage = new HomePage(testContext);
         wishlistPage = new WishlistPage(testContext);
@@ -39,7 +38,7 @@ public class OrdersTestDefinition {
     }
 
     public void openDriver() {
-        testContext.getDriver().get(URL);
+        testContext.getDriver().get(utils.applicationURL());
         testContext.getDriver().manage().window().maximize();
     }
 
@@ -50,7 +49,7 @@ public class OrdersTestDefinition {
     }
 
     @Given("I add four different products to my wish list")
-    public void iAddFourDifferentProductsToMyWishList() throws InterruptedException {
+    public void iAddFourDifferentProductsToMyWishList() throws InterruptedException, IOException {
         openDriver();
         homePage.acceptCookies().click();
         String[] productNames = {"Bikini", "Hard top", "Women", "Single Shirt"};

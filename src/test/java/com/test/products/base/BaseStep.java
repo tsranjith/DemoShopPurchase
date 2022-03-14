@@ -32,13 +32,13 @@ public class BaseStep {
         Thread.sleep(milliSeconds);
     }
 
-    public Object executeScript(String string, WebElement element) {
+    public void executeScript(String string, WebElement element) {
         RemoteWebDriver jse = driver;
 
         try {
-            return jse.executeScript(string, new Object[]{element});
+            jse.executeScript(string, element);
         } catch (StaleElementReferenceException var5) {
-            return jse.executeScript(string, new Object[]{element});
+            jse.executeScript(string, element);
         }
     }
 

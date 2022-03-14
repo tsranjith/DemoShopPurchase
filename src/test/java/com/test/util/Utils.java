@@ -1,24 +1,21 @@
 package com.test.util;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Properties;
 
 public class Utils {
-
-
-    Properties prop = null;
-    InputStream input = Utils.class.getResource("//input.properties").openStream();
+    private Properties properties;
 
     public Utils() throws IOException {
+        BufferedReader reader;
+        reader = new BufferedReader(new FileReader("input.properties"));
+        properties = new Properties();
+        properties.load(reader);
+        reader.close();
     }
 
-    public void ReadPropertiesFile() throws IOException {
-        prop = new Properties();
-        prop.load(input);
+    public String applicationURL() {
+        return properties.getProperty("URL");
     }
 
-    public String getURL(){
-        return  prop.getProperty("URL");
-    }
 }
